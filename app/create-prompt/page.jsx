@@ -8,6 +8,9 @@ import Form from "@components/Form";
 import { findDOMNode } from "react-dom";
 
 const CreatePrompt = () => {
+  const router = useRouter();
+  const { data: session } = useSession();
+
   const [Submitting, setSubmitting] = useState(false);
   const [Post, setPost] = useState({
     prompt: "",
@@ -22,9 +25,9 @@ const CreatePrompt = () => {
       const response = await fetch("/api/prompt/new", {
         method: "POST",
         body: JSON.stringify({
-          prompt: post.prompt,
+          prompt: Post.prompt,
           userId: session?.user.id,
-          tag: post.tag,
+          tag: Post.tag,
         }),
       });
       if (response.ok) {
