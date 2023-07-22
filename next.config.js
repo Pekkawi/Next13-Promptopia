@@ -8,10 +8,12 @@ const nextConfig = {
     domains: ["lh3.googleusercontent.com"],
   },
   webpack(config) {
+    config.resolve.fallback = { fs: false };
     config.experiments = {
       ...config.experiments,
       topLevelAwait: true,
     };
+
     return config;
   },
 };
