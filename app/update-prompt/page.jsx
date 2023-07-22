@@ -5,21 +5,17 @@ import { useRouter, useSearchParams } from "next/navigation";
 
 import Form from "@components/Form";
 
-const EditPrompt = () => {
+const UpdatePrompt = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const promptId = searchParams.get("id");
 
-  const [Submitting, setSubmitting] = useState(false);
-  const [Post, setPost] = useState({
-    prompt: "",
-    tag: "",
-  });
+  const [post, setPost] = useState({ prompt: "", tag: "" });
+  const [submitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     const getPromptDetails = async () => {
       const response = await fetch(`/api/prompt/${promptId}`);
-
       const data = await response.json();
 
       setPost({
@@ -33,39 +29,38 @@ const EditPrompt = () => {
 
   const updatePrompt = async (e) => {
     e.preventDefault();
-    setSubmitting(true);
+    setIsSubmitting(true);
 
-    if (!promptId) {
-      return alert("Missing Prompt ID");
-    }
+    if (!promptId) return alert("Missing PromptId!");
 
     try {
       const response = await fetch(`/api/prompt/${promptId}`, {
         method: "PATCH",
         body: JSON.stringify({
-          prompt: Post.prompt,
-          tag: Post.tag,
+          prompt: post.prompt,
+          tag: post.tag,
         }),
       });
+
       if (response.ok) {
         router.push("/");
       }
     } catch (error) {
       console.log(error);
     } finally {
-      setSubmitting(false);
+      setIsSubmitting(false);
     }
   };
 
   return (
     <Form
       type="Edit"
-      post={Post}
+      post={post}
       setPost={setPost}
-      Submitting={Submitting}
+      submitting={submitting}
       handleSubmit={updatePrompt}
     />
   );
 };
 
-export default EditPrompt;
+export default UpdatePrompt;
