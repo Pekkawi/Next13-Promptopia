@@ -17,11 +17,11 @@ A modern open-source AI prompting tool that allows users to discover, create and
 
 ### Home Page
 
-![Promptopia Demo](./images/Promptopia%20Demo.png)
+![Promptopia Demo](./public/assets/images/Promptopia%20Demo.png)
 
 ### Create Post Page
 
-![Create Post](./images/Create%20Post.png)
+![Create Post](./public/assets/images/Create%20Post.png)
 
 ## Quick Start
 
