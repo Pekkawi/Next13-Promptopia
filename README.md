@@ -15,7 +15,13 @@ A modern open-source AI prompting tool that allows users to discover, create and
 
 ## Demo
 
-Visit [Promptopia](https://promptopia-demo.vercel.app) to see the live demo.
+### Home Page
+
+![Promptopia Demo](./images/Promptopia%20Demo.png)
+
+### Create Post Page
+
+![Create Post](./images/Create%20Post.png)
 
 ## Quick Start
 
@@ -32,14 +38,14 @@ Make sure you have:
 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/promptopia.git
+git clone https://github.com/Pekkawi/Next13-Promptopia.git
 ```
 
 2. Install dependencies
 
 ```bash
-cd promptopia
-npm install
+cd Next13-Promptopia
+npm ci
 ```
 
 3. Set up your environment variables in `.env`
@@ -103,4 +109,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Next.js Documentation](https://nextjs.org/docs)
 - [TailwindCSS Documentation](https://tailwindcss.com/docs)
 
-Made with ❤️ by [Your Name]
+Made with ❤️ by Pekkawi
